@@ -10,8 +10,8 @@
     id属性名字表示给bean起名字
     class属性表示给bean定义类型
     -->
-    <bean id="bookDao" class="com.example.ssmstudy.dao.impl.BookDaoImpl"/>
-    <bean id="bookService" class="com.example.ssmstudy.service.impl.BookServiceImpl">
+    <bean id="bookDao" name="dao" class="com.example.ssmstudy.dao.impl.BookDaoImpl" scope="prototype"/>
+    <bean id="bookService" name="service4" class="com.example.ssmstudy.service.impl.BookServiceImpl" scope="prototype">
         <!--7. 配置server 与dao的关系-->
         <!--property标签表示配置当前bean的属性
         name属性表示配置那一个具体的属性
