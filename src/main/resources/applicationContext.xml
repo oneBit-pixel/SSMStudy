@@ -10,6 +10,8 @@
     id属性名字表示给bean起名字
     class属性表示给bean定义类型
     -->
+
+    <!--方式一 ： 构造方法实例化bean-->
     <bean id="bookDao" name="dao" class="com.example.ssmstudy.dao.impl.BookDaoImpl" scope="prototype"/>
     <bean id="bookService" name="service4" class="com.example.ssmstudy.service.impl.BookServiceImpl" scope="prototype">
         <!--7. 配置server 与dao的关系-->
@@ -20,5 +22,8 @@
         <property name="bookDao" ref="bookDao"/>
     </bean>
 
+
+    <!--方式二：工厂构造-->
+    <bean id="orderDao" class="com.example.ssmstudy.factory.OrderDaoFactory" factory-method="getOrderDao"/>
 
 </beans>

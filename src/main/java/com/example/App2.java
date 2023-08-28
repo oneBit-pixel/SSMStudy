@@ -15,8 +15,8 @@ public class App2 {
 //
 //        bookDao.save();
 
-        BookService bookService = (BookService) ctx.getBean("service4");
-        bookService.save();
+        BookDao bookDao = (BookDao) ctx.getBean("orderDao");
+        bookDao.save();
 
     }
 }
