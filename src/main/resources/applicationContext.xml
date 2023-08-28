@@ -26,4 +26,11 @@
     <!--方式二：工厂构造-->
     <bean id="orderDao" class="com.example.ssmstudy.factory.OrderDaoFactory" factory-method="getOrderDao"/>
 
+    <!--方式三： 使用实例工厂实例化bean-->
+<!--    <bean id="userFactory" class="com.example.ssmstudy.factory.UserDaoFactory"/>-->
+
+<!--    <bean id="userDao" factory-bean="userFactory" factory-method="getBookDao"/>-->
+
+    <!--方式4：使用 factory-method 实例bean-->
+    <bean id="userDao" class="com.example.ssmstudy.factory.UserDaoFactoryBean"/>
 </beans>

@@ -15,8 +15,10 @@ public class App2 {
 //
 //        bookDao.save();
 
-        BookDao bookDao = (BookDao) ctx.getBean("orderDao");
+        BookDao bookDao = (BookDao) ctx.getBean("userDao");
+        BookDao bookDao1 = (BookDao) ctx.getBean("userDao");
         bookDao.save();
-
+        System.out.println(bookDao);
+        System.out.println(bookDao1);
     }
 }
