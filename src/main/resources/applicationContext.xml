@@ -2,36 +2,55 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--标准书写-->
+    <!--    <bean id="bookDao" class="com.example.ssmstudy.dao.impl.BookDaoImpl">-->
+    <!--       <constructor-arg name="databaseName" value="mysql"/>-->
+    <!--       <constructor-arg name="connectNum" value="123"/>-->
+    <!--    </bean>-->
 
-    <!--1.导入spring 的坐标spring-context-->
+    <!--    <bean id="userDao" class="com.example.ssmstudy.dao.impl.UserDaoImpl"/>-->
 
-    <!--2. 配置bean-->
-    <!--bean标签标示配置bean
-    id属性名字表示给bean起名字
-    class属性表示给bean定义类型
-    -->
 
-    <!--方式一 ： 构造方法实例化bean-->
-    <bean id="bookDao" name="dao" class="com.example.ssmstudy.dao.impl.BookDaoImpl" init-method="init"
-          destroy-method="destroy"/>
-    <bean id="bookService" name="service4" class="com.example.ssmstudy.service.impl.BookServiceImpl" >
-        <!--7. 配置server 与dao的关系-->
-        <!--property标签表示配置当前bean的属性
-        name属性表示配置那一个具体的属性
-        ref属性表示参照那一个bean
-        -->
-        <property name="bookDao" ref="bookDao"/>
+    <!--    <bean id="bookService" class="com.example.ssmstudy.service.impl.BookServiceImpl">-->
+    <!--        <property name="bookDao" ref="bookDao"/>-->
+    <!--        <property name="userDao" ref="userDao"/>-->
+    <!--        <constructor-arg name="bookDao" ref="bookDao"/>-->
+    <!--        <constructor-arg name="userDao" ref="userDao"/>-->
+    <!--    </bean>-->
+
+<!--
+    1.解决形参耦合
+    <bean id="bookDao" class="com.example.ssmstudy.dao.impl.BookDaoImpl">
+        <constructor-arg type="int" value="123"/>
+        <constructor-arg type="java.lang.String" value="mysql"/>
     </bean>
 
+    <bean id="userDao" class="com.example.ssmstudy.dao.impl.UserDaoImpl"/>
 
-    <!--方式二：工厂构造-->
-    <bean id="orderDao" class="com.example.ssmstudy.factory.OrderDaoFactory" factory-method="getOrderDao"/>
 
-    <!--方式三： 使用实例工厂实例化bean-->
-    <!--    <bean id="userFactory" class="com.example.ssmstudy.factory.UserDaoFactory"/>-->
+    <bean id="bookService" class="com.example.ssmstudy.service.impl.BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+        <property name="userDao" ref="userDao"/>
+        <constructor-arg name="bookDao" ref="bookDao"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>-->
 
-    <!--    <bean id="userDao" factory-bean="userFactory" factory-method="getBookDao"/>-->
+<!--
+    解决参数类型重复的问题,使用位置解决参数匹配
+    <bean id="bookDao" class="com.example.ssmstudy.dao.impl.BookDaoImpl">
+        <constructor-arg  value="123" index="0"/>
+        <constructor-arg  value="mysql" index="1"/>
+    </bean>
 
-    <!--方式4：使用 factory-method 实例bean-->
-    <bean id="userDao" class="com.example.ssmstudy.factory.UserDaoFactoryBean"/>
+    <bean id="userDao" class="com.example.ssmstudy.dao.impl.UserDaoImpl"/>
+
+
+    <bean id="bookService" class="com.example.ssmstudy.service.impl.BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+        <property name="userDao" ref="userDao"/>
+        <constructor-arg name="bookDao" ref="bookDao"/>
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
+-->
+
 </beans>

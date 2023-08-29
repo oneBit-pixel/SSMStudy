@@ -1,6 +1,7 @@
 package com.example.ssmstudy.service.impl;
 
 import com.example.ssmstudy.dao.BookDao;
+import com.example.ssmstudy.dao.UserDao;
 import com.example.ssmstudy.dao.impl.BookDaoImpl;
 import com.example.ssmstudy.service.BookService;
 import org.springframework.beans.factory.DisposableBean;
@@ -10,10 +11,22 @@ public class BookServiceImpl implements BookService, InitializingBean, Disposabl
     //5.删除业务层中使用new的方式创建的dao对象
     private BookDao bookDao;
 
+    private UserDao userDao;
+
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+
+    public BookServiceImpl(BookDao bookDao, UserDao userDao) {
+        this.bookDao = bookDao;
+        this.userDao = userDao;
+    }
 
     public void save() {
         System.out.println("book service save");
         bookDao.save();
+        userDao.save();
     }
 
 

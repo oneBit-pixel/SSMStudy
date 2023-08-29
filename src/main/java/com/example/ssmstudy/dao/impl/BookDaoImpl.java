@@ -7,23 +7,24 @@ import java.awt.print.Book;
 
 public class BookDaoImpl implements BookDao {
 
+
+    private int connectNum;
+    private String databaseName;
+
+
+    public BookDaoImpl(int connectNum, String databaseName) {
+        this.connectNum = connectNum;
+        this.databaseName = databaseName;
+    }
+
     //如果实现则代表 有实例化
-    public BookDaoImpl( ) {
+    public BookDaoImpl() {
         System.out.println("BookDaoImpl is running");
     }
 
     public void save() {
-        System.out.println("book dao save....");
+        System.out.println("book dao save...." + databaseName + "," + connectNum);
     }
 
 
-    //表示bean初始化对应的操作
-    public void init(){
-        System.out.println("init....");
-    }
-
-    //表示Bean销毁前对应的操作
-    public void destroy(){
-        System.out.println("destroy...");
-    }
 }

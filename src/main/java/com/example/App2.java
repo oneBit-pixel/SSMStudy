@@ -11,9 +11,11 @@ public class App2 {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         //4.获取bean
-//        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
-//
-//        bookDao.save();
+        BookService bookservice = (BookService) ctx.getBean("bookService");
+
+        bookservice.save();
+
+
 
         ctx.registerShutdownHook();
     }
