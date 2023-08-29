@@ -10,7 +10,6 @@ public class SsmStudyApplication {
     public static void main(String[] args) {
 //        SpringApplication.run(SsmStudyApplication.class, args);
         BookServiceImpl bookService = new BookServiceImpl();
-        bookService.save();
     }
 
 }

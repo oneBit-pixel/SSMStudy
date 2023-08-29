@@ -6,7 +6,7 @@ import com.example.ssmstudy.service.impl.BookServiceImpl;
 
 public class OrderDaoFactory {
     public static BookDao getOrderDao() {
-        System.out.println("factory....");
+//        System.out.println("factory....");
         return new BookDaoImpl();
     }
 }

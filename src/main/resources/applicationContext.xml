@@ -12,8 +12,9 @@
     -->
 
     <!--方式一 ： 构造方法实例化bean-->
-    <bean id="bookDao" name="dao" class="com.example.ssmstudy.dao.impl.BookDaoImpl" scope="prototype"/>
-    <bean id="bookService" name="service4" class="com.example.ssmstudy.service.impl.BookServiceImpl" scope="prototype">
+    <bean id="bookDao" name="dao" class="com.example.ssmstudy.dao.impl.BookDaoImpl" init-method="init"
+          destroy-method="destroy"/>
+    <bean id="bookService" name="service4" class="com.example.ssmstudy.service.impl.BookServiceImpl" >
         <!--7. 配置server 与dao的关系-->
         <!--property标签表示配置当前bean的属性
         name属性表示配置那一个具体的属性
@@ -27,9 +28,9 @@
     <bean id="orderDao" class="com.example.ssmstudy.factory.OrderDaoFactory" factory-method="getOrderDao"/>
 
     <!--方式三： 使用实例工厂实例化bean-->
-<!--    <bean id="userFactory" class="com.example.ssmstudy.factory.UserDaoFactory"/>-->
+    <!--    <bean id="userFactory" class="com.example.ssmstudy.factory.UserDaoFactory"/>-->
 
-<!--    <bean id="userDao" factory-bean="userFactory" factory-method="getBookDao"/>-->
+    <!--    <bean id="userDao" factory-bean="userFactory" factory-method="getBookDao"/>-->
 
     <!--方式4：使用 factory-method 实例bean-->
     <bean id="userDao" class="com.example.ssmstudy.factory.UserDaoFactoryBean"/>
