@@ -18,15 +18,11 @@ public class BookServiceImpl implements BookService, InitializingBean, Disposabl
     }
 
 
-    public BookServiceImpl(BookDao bookDao, UserDao userDao) {
-        this.bookDao = bookDao;
-        this.userDao = userDao;
-    }
+
 
     public void save() {
         System.out.println("book service save");
         bookDao.save();
-        userDao.save();
     }
 
 
