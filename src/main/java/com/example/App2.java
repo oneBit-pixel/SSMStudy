@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.ssmstudy.dao.BookDao;
+import com.example.ssmstudy.dao.impl.BookDaoImpl;
 import com.example.ssmstudy.service.BookService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,7 +12,7 @@ public class App2 {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         //4.获取bean
-        BookService bookservice = (BookService) ctx.getBean("bookService");
+        BookDaoImpl bookservice = (BookDaoImpl) ctx.getBean("bookDao");
 
         bookservice.save();
 

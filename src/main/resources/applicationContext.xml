@@ -1,55 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
 
-    <bean name="bookDao" class="com.example.ssmstudy.dao.impl.BookDaoImpl">
-        <property name="array">
-            <array>
-                <value>100</value>
-                <value>200</value>
-                <value>300</value>
-                <value>400</value>
-                <value>500</value>
-            </array>
-        </property>
+        "
 
-        <property name="list">
-            <list>
-                <value>it</value>
-                <value>it1</value>
-                <value>it2</value>
-                <value>it3</value>
-                <value>it4</value>
-                <value>it5</value>
-            </list>
-        </property>
+>
+    <!--  1. 开启context命名控件  -->
+    <!--  2 . 使用context 空间加载properties 文件  -->
+    <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
+    <!--  3. 使用占位符${}读取properties 文件中属性 -->
 
-        <property name="set">
-            <set>
-                <value>it</value>
-                <value>it</value>
-                <value>it22</value>
-                <value>it3</value>
-            </set>
-        </property>
-
-        <property name="map">
-            <map>
-                <entry key="country" value="1"/>
-                <entry key="province" value="2"/>
-                <entry key="city" value="3"/>
-            </map>
-        </property>
-        
-        <property name="properties">
-            <props>
-                <prop key="country">china</prop>
-                <prop key="province">河南</prop>
-                <prop key="city">开封</prop>
-            </props>
-        </property>
+    <bean id="bookDao" class="com.example.ssmstudy.dao.impl.BookDaoImpl">
+        <property name="databaseName" value="${username1}"/>
     </bean>
-
-    <bean name="bookService" class="com.example.ssmstudy.service.impl.BookServiceImpl" autowire="byType"/>
 </beans>
