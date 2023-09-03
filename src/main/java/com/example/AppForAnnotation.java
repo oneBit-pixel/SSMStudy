@@ -13,10 +13,11 @@ import javax.swing.*;
 public class AppForAnnotation {
     public static void main(String[] args) {
         //config是不再是从xml中 获取 是从springConfig中获取了
-        ApplicationContext ctx =new AnnotationConfigApplicationContext(SpringConfig.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         BookDao bookDao = (BookDao) ctx.getBean("bookDao");
+        BookDao bookDao1 = (BookDao) ctx.getBean("bookDao");
+        System.out.println(bookDao);
+        System.out.println(bookDao1);
 
-        BookService bookService = ctx.getBean(BookService.class);
-        System.out.println(bookService);
     }
 }
