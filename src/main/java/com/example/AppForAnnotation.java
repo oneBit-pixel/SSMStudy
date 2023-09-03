@@ -19,5 +19,6 @@ public class AppForAnnotation {
         System.out.println(bookDao);
         System.out.println(bookDao1);
 
+        ctx.close();
     }
 }
