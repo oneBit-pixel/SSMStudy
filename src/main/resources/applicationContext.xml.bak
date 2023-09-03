@@ -8,12 +8,8 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd
         ">
-    <!--  1. 开启context命名控件  -->
-    <!--  2 . 使用context 空间加载properties 文件  -->
-    <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>
-    <!--  3. 使用占位符${}读取properties 文件中属性 -->
 
-    <bean id="bookDao" class="com.example.ssmstudy.dao.impl.BookDaoImpl">
-        <property name="databaseName" value="${username1}"/>
-    </bean>
+    <context:component-scan base-package="com.example"/>
+
+
 </beans>

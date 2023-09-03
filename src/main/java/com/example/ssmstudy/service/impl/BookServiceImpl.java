@@ -6,8 +6,12 @@ import com.example.ssmstudy.dao.impl.BookDaoImpl;
 import com.example.ssmstudy.service.BookService;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-public class BookServiceImpl implements BookService, InitializingBean, DisposableBean {
+//@Component
+@Service
+public class BookServiceImpl implements BookService {
     //5.删除业务层中使用new的方式创建的dao对象
     private BookDao bookDao;
 
@@ -16,8 +20,6 @@ public class BookServiceImpl implements BookService, InitializingBean, Disposabl
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
-
-
 
 
     public void save() {
@@ -32,12 +34,10 @@ public class BookServiceImpl implements BookService, InitializingBean, Disposabl
         this.bookDao = bookDao;
     }
 
-    @Override
     public void destroy() throws Exception {
         System.out.println("service destroy");
     }
 
-    @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("service init");
     }
