@@ -4,6 +4,7 @@ import com.example.ssmstudy.dao.BookDao;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import java.util.*;
 
 //@Component("bookDao") //配置了一个bean
 @Repository("bookDao")
+@ComponentScan("com.example")
 @Scope("singleton")
 public class BookDaoImpl implements BookDao {
 
@@ -23,7 +25,8 @@ public class BookDaoImpl implements BookDao {
     private String name;
 
     public void save() {
-        System.out.println("book service save..." + name);
+        long endTime = System.currentTimeMillis();
+        System.out.println("执行万次消耗时间:" + endTime + "ms");
     }
 
 
@@ -35,5 +38,17 @@ public class BookDaoImpl implements BookDao {
     @PreDestroy
     public void destroy() {
         System.out.println("destroy...");
+    }
+
+    public void update() {
+        System.out.println("book dao update...");
+    }
+
+    public void delete() {
+        System.out.println("book dao delete...");
+    }
+
+    public void select() {
+        System.out.println("book dao select...");
     }
 }

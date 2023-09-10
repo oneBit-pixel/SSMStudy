@@ -16,6 +16,20 @@ repositories {
 }
 
 dependencies {
+
+    implementation 'com.alibaba:druid:1.2.19'
+    implementation 'org.springframework:spring-jdbc:6.0.11'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'org.mybatis:mybatis:3.5.13'
+    implementation 'org.mybatis:mybatis-spring:3.0.2'
+
+    implementation 'org.springframework:spring-test:6.0.11'
+
+    //aop
+    implementation 'org.springframework:spring-context:6.0.11'
+    implementation 'org.springframework:spring-aspects:6.0.11'
+
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
