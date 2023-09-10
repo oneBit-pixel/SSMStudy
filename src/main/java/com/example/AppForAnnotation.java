@@ -15,6 +15,7 @@ public class AppForAnnotation {
         //config是不再是从xml中 获取 是从springConfig中获取了
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         BookDao bookDao = (BookDao) ctx.getBean("bookDao");
+        bookDao.save();
         BookDao bookDao1 = (BookDao) ctx.getBean("bookDao");
         System.out.println(bookDao);
         System.out.println(bookDao1);
